@@ -1,0 +1,34 @@
+name: ci for cli
+
+on:
+  push:
+    branches: 
+      - 'master'
+
+jobs:
+  build-cli:
+    runs-on: ${{ matrix.os }}
+    if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+
+    env:
+      VERSION: 1.1.0
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22.5'
+      - name: Go build
+        working-directory: .
+        run: |
+          bash -x ./release.sh ${{ env.VERSION }}
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cli
+          path: ./release_${{ env.VERSION }}
+          retention-days: 7
