@@ -29,6 +29,6 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: cli
+          name: wxdown_${{ env.VERSION }}
           path: ./release_${{ env.VERSION }}
           retention-days: 7
