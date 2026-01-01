@@ -1,3 +1,13 @@
+### v1.1.0
+
+替换所有文件（不包含 `data`）
+
+- 解决部分 HTML 转 PDF 乱码问题 [issues 16](https://github.com/systemmin/wxdown/issues/16#) 。
+- 新增 HTML 转 Word 配置 [config.yaml#L38](https://github.com/systemmin/wxdown/blob/master/config.yaml#L38) ，需单独安装 [pandc](https://github.com/jgm/pandoc/releases) 工具。
+- 优化 Mac 默认配置开启转 PDF 功能时，导致 CPU 高占用问题 [issues 13](https://github.com/systemmin/wxdown/issues/13#) 。
+
+[下载地址](https://864000.lanzouu.com/b0hcyau5e) 密码：3ido
+
 ### v1.0.9
 
 替换 `wxdown`

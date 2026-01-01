@@ -150,7 +150,10 @@ func downloadHtml(urlStr, path, newName string, sem chan struct{}, wg *sync.Wait
 	activityName := doc.Find("#activity-name").Text()
 	if len(activityName) == 0 { // 图片轮播集
 		activityName = baseInfo["msg_title"]
-		fmt.Println(activityName)
+		if len(activityName) == 0 {
+			activityName = baseInfo["window.title"]
+		}
+		fmt.Println("图片轮播集名称:", activityName)
 	}
 	// 图集表示
 	isAlbum := false
@@ -160,7 +163,6 @@ func downloadHtml(urlStr, path, newName string, sem chan struct{}, wg *sync.Wait
 	if len(jsName) == 0 { // 图片轮播集
 		jsName = doc.Find(".wx_follow_nickname").Eq(0).Text()
 		isAlbum = true
-		fmt.Println(jsName)
 	}
 	jsName = utils.Iif(len(newName) > 0, newName, jsName)
 
@@ -177,7 +179,7 @@ func downloadHtml(urlStr, path, newName string, sem chan struct{}, wg *sync.Wait
 	baseInfoStr := strings.ReplaceAll(string(jsonData), "\\u0026", "&")
 	fmt.Printf("基础信息：%s\n", baseInfoStr)
 	if len(jsName) <= 0 {
-		log.Printf("公众号名称为空：%s，未采集到内容\n", jsName)
+		log.Println("公众号名称为空：未采集到内容")
 		return
 	}
 	// 创建公众号文件夹
@@ -221,7 +223,7 @@ func downloadHtml(urlStr, path, newName string, sem chan struct{}, wg *sync.Wait
 				voiceName = audio.Name
 			}
 			// 发布时间->音频名称-->音频序号->音频后缀
-			audioName := fmt.Sprintf("%s_%s_%d.%s", createTime, audio.Name, i, "mp3")
+			audioName := fmt.Sprintf("%s_%s_%d.%s", createTime, voiceName, i, "mp3")
 			audioPath := filepath.Join(path, baseInfo["js_name"], "audios", audioName)
 			wgFile.Add(1)
 			down.DownloadFile(constant.AudioPrefix+voiceEncodeFileID, audioPath, nil, semFile, &wgFile)

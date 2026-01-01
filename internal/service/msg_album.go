@@ -78,7 +78,12 @@ func parseAlbum(httpUrl string) ([]string, string) {
 		attr, exists := selection.Attr("data-link")
 		if exists {
 			urls = append(urls, attr)
-			log.Println(i, ":", attr)
+		} else {
+			//标签合集 下载异常列表取值 data-url 而非 data-link @see https://github.com/systemmin/wxdown/issues/21
+			attr, exists = selection.Attr("data-url")
+			if exists {
+				urls = append(urls, attr)
+			}
 		}
 	})
 	// 正则匹配，解析视频合集

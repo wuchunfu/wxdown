@@ -3,7 +3,8 @@ package constant
 import "time"
 
 // Fields 从文章获取的字段
-var Fields = [9]string{"source_appid", "countryName", "provinceName", "user_name", "createTime", "biz", "msg_title", "msg_link", "hd_head_img"}
+var Fields = []string{
+	"source_appid", "countryName", "provinceName", "user_name", "createTime", "biz", "msg_title", "msg_link", "hd_head_img", "window.title"}
 
 const Domain = "mp.weixin.qq.com"
 

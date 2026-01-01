@@ -45,3 +45,6 @@ https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU2Mzk1NzkwOA==&action=getalbum&a
 # 视频地址解析导致运行中断问题
 https://mp.weixin.qq.com/s/bp2neIgzOmukT6Lial22Kg
 https://mp.weixin.qq.com/s/E4h4HU6TOaaIc-ay5rXRHg
+
+# 标签合集 下载异常列表取值 data-url 而非 data-link
+https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU2NzMzNjMwNA==&action=getalbum&album_id=1831361470190632960&scene=173#wechat_redirect

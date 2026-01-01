@@ -318,8 +318,6 @@ func GetBaseInfo(str string) map[string]string {
 			} else {
 				info[item] = jsonStr
 			}
-		} else {
-			fmt.Println("没有找到匹配的内容")
 		}
 	}
 	if value, exists := info["createTime"]; exists {
