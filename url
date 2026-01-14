@@ -48,3 +48,6 @@ https://mp.weixin.qq.com/s/E4h4HU6TOaaIc-ay5rXRHg
 
 # 标签合集 下载异常列表取值 data-url 而非 data-link
 https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU2NzMzNjMwNA==&action=getalbum&album_id=1831361470190632960&scene=173#wechat_redirect
+
+# 背景图片样式分隔错误，导致图片下载异常 &amp; & 问题
+https://mp.weixin.qq.com/s?__biz=MzUxNTYzMjA5Mg==&mid=2247523683&idx=1&sn=6f5195966dac50415b03231ac13e99dc&chksm=f9b163d0cec6eac6528e36c393a69619

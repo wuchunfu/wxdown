@@ -1,3 +1,11 @@
+### v1.1.1 (当前版本)
+
+更新 wxdown
+
+- 解决合集下载异常 [issues 21](https://github.com/systemmin/wxdown/issues/21) 。
+- 优化音频文件名称问题
+- 优化图片集下载名称问题
+
 ### v1.1.0
 
 替换所有文件（不包含 `data`）

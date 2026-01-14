@@ -74,6 +74,7 @@ func handleImage(child *goquery.Selection, nodes *[]NodeContent) {
 	if exists && strings.Contains(style, "background-image") && strings.Contains(style, "url") {
 		// 处理样式 替换双引号
 		style = strings.ReplaceAll(style, "&quot;", "\"")
+		style = strings.ReplaceAll(style, "&amp;", "&")
 		parts := strings.Split(style, ";")
 		for _, part := range parts {
 			if strings.Contains(part, "background-image") {
@@ -87,14 +88,7 @@ func handleImage(child *goquery.Selection, nodes *[]NodeContent) {
 	if bg != "" {
 		*nodes = append(*nodes, NodeContent{Node: child, Original: bg, Target: "", Type: 1, Styles: styles2})
 	}
-	// 4、封面
-	//cover, exists := child.Attr("data-cover")
-	//if exists {
-	//	unescape, err := url.PathUnescape(cover)
-	//	if err == nil {
-	//		*nodes = append(*nodes, NodeContent{Node: child, Original: unescape, Target: "", Type: 2})
-	//	}
-	//}
+
 	// 5、svg embed
 	if child.Is("embed") {
 		src, exists := child.Attr("src")

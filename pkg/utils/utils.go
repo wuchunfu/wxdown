@@ -138,14 +138,12 @@ func WriteAppendFile(path, content string) {
 
 // GetBgImage 获取 css 背景图片
 func GetBgImage(style string) string {
-	str := style[strings.Index(style, "(")+1 : strings.LastIndex(style, ")")]
-	if strings.HasPrefix(str, "\"") {
-		str = str[1:]
-		if strings.HasSuffix(str, "\"") {
-			str = str[:len(str)-1]
-		}
+	match := regexp.MustCompile(`url\(["']?(.*?)["']?\)`).FindStringSubmatch(style)
+	if len(match) > 1 {
+		bgUrl := match[1]
+		return bgUrl
 	}
-	return str
+	return ""
 }
 
 // GetUrlParams 获取 URL 参数

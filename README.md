@@ -27,13 +27,11 @@
 
 ## 软件版本
 
-### v1.1.1 (当前版本)
+### v1.1.2 (当前版本)
 
 更新 wxdown 
 
-- 解决合集下载异常 [issues 21](https://github.com/systemmin/wxdown/issues/21) 。
-- 优化音频文件名称问题 
-- 优化图片集下载名称问题
+- 修复 `style` 分隔错误，导致图片下载异常 `&amp; &` 问题 [issues 22](https://github.com/systemmin/wxdown/issues/22) 。
 
 [releases 页面下载](https://github.com/systemmin/wxdown/releases)
 
